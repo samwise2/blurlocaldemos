@@ -1,0 +1,18 @@
+
+<html>
+  <body>
+    <video id="video" width="480" height="320" autoplay playsinline></video>
+    <script>
+        const videoElement = document.getElementById('video');
+
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then(stream => {
+              videoElement.srcObject = stream;
+              videoElement.play();
+            })
+            .catch(err => {
+              alert(`Following error occured: ${err}`);
+            });
+    </script>
+  </body>
+</html>
